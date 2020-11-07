@@ -41,15 +41,15 @@ function setup() {
   trex.addAnimation("collided", trex_collided);
   trex.scale = 0.5;
   
-  ground = createSprite(200,180,400,20);
+  ground = createSprite(width/2,height-73,width,125);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
   ground.velocityX = -(6 + 3*score/100);
   
-  gameOver = createSprite(300,100);
+  gameOver = createSprite(300,height - 175);
   gameOver.addImage(gameOverImg);
   
-  restart = createSprite(300,140);
+  restart = createSprite(300,height - 130);
   restart.addImage(restartImg);
   
   gameOver.scale = 0.5;
@@ -88,7 +88,6 @@ function draw() {
     
     if ((touches.length > 0 || keyDown("space")) && trex.y >= height-120){
       trex.velocityY = -12;
-      jumpSound.play();
       touches = [];
     }
   
@@ -150,7 +149,7 @@ function spawnClouds() {
 
 function spawnObstacles() {
   if(frameCount % 60 === 0) {
-    var obstacle = createSprite(600,165,10,40);
+    var obstacle = createSprite(600,height - 90,10,40);
     //obstacle.debug = true;
     obstacle.velocityX = -(6 + 3*score/100);
     
