@@ -120,7 +120,7 @@ function draw() {
       reset();
     }
   }
-  
+  console.log(trex.y)
   
   drawSprites();
 }
